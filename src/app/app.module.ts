@@ -16,6 +16,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {PipesModule} from './shared/pipes/pipes.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {InterceptorModule} from './interceptor/interceptor.module';
+// tslint:disable-next-line:import-spacing
+import  {FirestoreModule} from './firestore/firestore.module';
+
 
 @NgModule({
     declarations: [
@@ -36,7 +39,8 @@ import {InterceptorModule} from './interceptor/interceptor.module';
         HttpClientModule,
         InterceptorModule,
         PipesModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        FirestoreModule
     ],
     providers: [],
     exports: [
