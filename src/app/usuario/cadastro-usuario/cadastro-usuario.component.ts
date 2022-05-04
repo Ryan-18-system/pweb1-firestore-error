@@ -4,6 +4,7 @@ import {UsuarioService} from '../../shared/services/usuario.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MensagemService} from '../../shared/services/mensagem.service';
+import {UsuarioFirestoreService} from '../../shared/services/usuario-firestore.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -16,12 +17,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
   operacaoCadastro = true;
 
-  constructor(private usuarioService: UsuarioService, private rotalAtual: ActivatedRoute, private roteador: Router,
+  constructor(private usuarioService: UsuarioFirestoreService, private rotalAtual: ActivatedRoute, private roteador: Router,
               private mensagemService: MensagemService) {
     this.usuario = new Usuario();
     if (this.rotalAtual.snapshot.paramMap.has('id')) {
       this.operacaoCadastro = false;
-      const idParaEdicao = Number(this.rotalAtual.snapshot.paramMap.get('id'));
+      const idParaEdicao = this.rotalAtual.snapshot.paramMap.get('id');
       // pegar do banco usuario id=idParaEdicao
       this.usuarioService.pesquisarPorId(idParaEdicao).subscribe(
         usuarioRetornado => this.usuario = usuarioRetornado

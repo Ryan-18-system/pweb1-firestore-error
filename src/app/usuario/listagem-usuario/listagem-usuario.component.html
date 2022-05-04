@@ -1,3 +1,6 @@
+<div>
+  <mat-slide-toggle name="slideMaiorIdade" ngDefaultControl [(ngModel)]="maioresIdade" (change)="atualizarListagem()">Apenas maiores de idade</mat-slide-toggle>
+</div>
 <div fxLayout="row wrap" fxLayout.lt-sm="column">
   <mat-card *ngFor="let usuario of usuarios" class="mat-card-listagem" fxFlex="20%">
     <mat-card-header>
