@@ -4,7 +4,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {config} from 'rxjs';
+import {FirebaseConfig} from '../../../firebase.config';
+
 
 
 
@@ -12,7 +13,7 @@ import {config} from 'rxjs';
   declarations: [],
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(FirebaseConfig.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
